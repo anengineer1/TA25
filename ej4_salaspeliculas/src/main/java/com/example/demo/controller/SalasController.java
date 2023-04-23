@@ -39,8 +39,6 @@ public class SalasController {
 		
 		sala_xid=salasServiceImpl.salaXID(id);
 		
-		System.out.println("Video XID: "+sala_xid);
-		
 		return sala_xid;
 	}
 	
@@ -56,8 +54,6 @@ public class SalasController {
 		sala_seleccionada.setAlmacen(sala.getPelicula());
 		
 		sala_actualizada = salasServiceImpl.actualizarSala(sala_seleccionada);
-		
-		System.out.println("La caja actualizada es: "+ sala_actualizada);
 		
 		return sala_actualizada;
 	}
