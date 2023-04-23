@@ -22,30 +22,28 @@ public class CajasController {
 	CajasServiceImpl CajasServiceImpl;
 	
 	@GetMapping("/cajas")
-	public List<Cajas> listarVideos(){
+	public List<Cajas> listarCajas(){
 		return CajasServiceImpl.listarCajas();
 	}
 	
 	@PostMapping("/cajas")
-	public Cajas salvarArticulo(@RequestBody Cajas caja) {
+	public Cajas salvarCaja(@RequestBody Cajas caja) {
 		
 		return CajasServiceImpl.guardarCajas(caja);
 	}
 	
 	@GetMapping("/cajas/{id}")
-	public Cajas articuloXID(@PathVariable(name="id") String id) {
+	public Cajas cajaXID(@PathVariable(name="id") String id) {
 		
 		Cajas caja_xid= new Cajas();
 		
 		caja_xid=CajasServiceImpl.cajaXID(id);
 		
-		System.out.println("Video XID: "+caja_xid);
-		
 		return caja_xid;
 	}
 	
 	@PutMapping("/cajas/{id}")
-	public Cajas actualizarArticulo(@PathVariable(name="id")String id,@RequestBody Cajas caja) {
+	public Cajas actualizarCaja(@PathVariable(name="id")String id,@RequestBody Cajas caja) {
 		
 		Cajas caja_seleccionada= new Cajas();
 		Cajas caja_actualizada= new Cajas();
@@ -58,13 +56,11 @@ public class CajasController {
 		
 		caja_actualizada = CajasServiceImpl.actualizarCaja(caja_seleccionada);
 		
-		System.out.println("La caja actualizada es: "+ caja_actualizada);
-		
 		return caja_actualizada;
 	}
 	
 	@DeleteMapping("/cajas/{id}")
-	public void eliminarArticulo(@PathVariable(name="id")String id) {
+	public void eliminarCaja(@PathVariable(name="id")String id) {
 		CajasServiceImpl.eliminarCaja(id);
 	}
 	

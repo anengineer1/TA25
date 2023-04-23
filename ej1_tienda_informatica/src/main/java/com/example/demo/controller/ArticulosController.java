@@ -22,7 +22,7 @@ public class ArticulosController {
 	ArticulosServiceImpl articulosServiceImpl;
 	
 	@GetMapping("/articulos")
-	public List<Articulos> listarVideos(){
+	public List<Articulos> listarArticulos(){
 		return articulosServiceImpl.listarArticulos();
 	}
 	
@@ -35,13 +35,11 @@ public class ArticulosController {
 	@GetMapping("/articulos/{id}")
 	public Articulos articuloXID(@PathVariable(name="id") Long id) {
 		
-		Articulos video_xid= new Articulos();
+		Articulos articulo_xid= new Articulos();
 		
-		video_xid=articulosServiceImpl.articuloXID(id);
+		articulo_xid=articulosServiceImpl.articuloXID(id);
 		
-		System.out.println("Video XID: "+video_xid);
-		
-		return video_xid;
+		return articulo_xid;
 	}
 	
 	@PutMapping("/articulos/{id}")
@@ -57,8 +55,6 @@ public class ArticulosController {
 		articulo_seleccionado.setFabricantes(articulo.getFabricantes());
 		
 		articulo_actualizado = articulosServiceImpl.actualizarArticulo(articulo_seleccionado);
-		
-		System.out.println("El video actualizado es: "+ articulo_actualizado);
 		
 		return articulo_actualizado;
 	}

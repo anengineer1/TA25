@@ -22,30 +22,28 @@ public class PeliculasController {
 	PeliculasServiceImpl peliculasServiceImpl;
 	
 	@GetMapping("/peliculas")
-	public List<Peliculas> listarAlmacenes(){
+	public List<Peliculas> listarPeliculas(){
 		return peliculasServiceImpl.listarPeliculas();
 	}
 	
 	@PostMapping("/peliculas")
-	public Peliculas salvarAlmacenes(@RequestBody Peliculas departamento) {
+	public Peliculas salvarPeliculas(@RequestBody Peliculas departamento) {
 		
 		return peliculasServiceImpl.guardarPelicula(departamento);
 	}
 	
 	@GetMapping("/peliculas/{id}")
-	public Peliculas almacenXID(@PathVariable(name="id") Long id) {
+	public Peliculas peliculaXID(@PathVariable(name="id") Long id) {
 		
 		Peliculas pelicula_xid = new Peliculas();
 		
 		pelicula_xid = peliculasServiceImpl.peliculaXID(id);
 		
-		System.out.println("Pelicula XID: " + pelicula_xid);
-		
 		return pelicula_xid;
 	}
 	
 	@PutMapping("/peliculas/{id}")
-	public Peliculas actualizarAlmacen(@PathVariable(name="id")Long id,@RequestBody Peliculas pelicula) {
+	public Peliculas actualizarPelicula(@PathVariable(name="id")Long id,@RequestBody Peliculas pelicula) {
 		
 		Peliculas pelicula_seleccionada= new Peliculas();
 		Peliculas pelicula_actualizada= new Peliculas();
@@ -57,13 +55,11 @@ public class PeliculasController {
 		
 		pelicula_actualizada = peliculasServiceImpl.actualizarPelicula(pelicula_seleccionada);
 		
-		System.out.println("La pelicula actualizada es: "+ pelicula_actualizada);
-		
 		return pelicula_actualizada;
 	}
 	
 	@DeleteMapping("/peliculas/{id}")
-	public void eleiminarAlmacen(@PathVariable(name="id")Long id) {
+	public void eleiminarPelicula(@PathVariable(name="id")Long id) {
 		peliculasServiceImpl.eliminarPelicula(id);
 	}
 

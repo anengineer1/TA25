@@ -22,18 +22,18 @@ public class SalasController {
 	SalasServiceImpl salasServiceImpl;
 	
 	@GetMapping("/salas")
-	public List<Salas> listarVideos(){
+	public List<Salas> listarSalas(){
 		return salasServiceImpl.listarSalas();
 	}
 	
 	@PostMapping("/salas")
-	public Salas salvarArticulo(@RequestBody Salas caja) {
+	public Salas salvarSala(@RequestBody Salas caja) {
 		
 		return salasServiceImpl.guardarSala(caja);
 	}
 	
 	@GetMapping("/salas/{id}")
-	public Salas articuloXID(@PathVariable(name="id") long id) {
+	public Salas salaXID(@PathVariable(name="id") long id) {
 		
 		Salas sala_xid= new Salas();
 		
@@ -45,7 +45,7 @@ public class SalasController {
 	}
 	
 	@PutMapping("/salas/{id}")
-	public Salas actualizarArticulo(@PathVariable(name="id")long id,@RequestBody Salas sala) {
+	public Salas actualizarSala(@PathVariable(name="id")long id,@RequestBody Salas sala) {
 		
 		Salas sala_seleccionada= new Salas();
 		Salas sala_actualizada= new Salas();
@@ -63,7 +63,7 @@ public class SalasController {
 	}
 	
 	@DeleteMapping("/salas/{id}")
-	public void eliminarArticulo(@PathVariable(name="id")long id) {
+	public void eliminarSala(@PathVariable(name="id")long id) {
 		salasServiceImpl.eliminarSala(id);
 	}
 	

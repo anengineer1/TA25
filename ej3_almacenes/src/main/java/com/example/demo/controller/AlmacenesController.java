@@ -63,7 +63,7 @@ public class AlmacenesController {
 	}
 	
 	@DeleteMapping("/almacenes/{id}")
-	public void eleiminarAlmacen(@PathVariable(name="id")Long id) {
+	public void eliminarAlmacen(@PathVariable(name="id")Long id) {
 		almacenesServiceImpl.eliminarAlmacen(id);
 	}
 

@@ -19,53 +19,49 @@ import com.example.demo.service.EmpleadosServiceImpl;
 public class EmpleadosController {
 
 	@Autowired
-	EmpleadosServiceImpl articulosServiceImpl;
+	EmpleadosServiceImpl empleadosServiceImpl;
 	
 	@GetMapping("/empleados")
-	public List<Empleados> listarVideos(){
-		return articulosServiceImpl.listarEmpleados();
+	public List<Empleados> listarEmpleados(){
+		return empleadosServiceImpl.listarEmpleados();
 	}
 	
 	@PostMapping("/empleados")
-	public Empleados salvarArticulo(@RequestBody Empleados articulo) {
+	public Empleados salvarEmpleados(@RequestBody Empleados articulo) {
 		
-		return articulosServiceImpl.guardarEmpleados(articulo);
+		return empleadosServiceImpl.guardarEmpleados(articulo);
 	}
 	
 	@GetMapping("/empleados/{id}")
-	public Empleados articuloXID(@PathVariable(name="id") String id) {
+	public Empleados empleadosXID(@PathVariable(name="id") String id) {
 		
-		Empleados video_xid= new Empleados();
+		Empleados empleado_xid= new Empleados();
 		
-		video_xid=articulosServiceImpl.empleadoXID(id);
+		empleado_xid=empleadosServiceImpl.empleadoXID(id);
 		
-		System.out.println("Video XID: "+video_xid);
-		
-		return video_xid;
+		return empleado_xid;
 	}
 	
 	@PutMapping("/empleados/{id}")
-	public Empleados actualizarArticulo(@PathVariable(name="id")String id,@RequestBody Empleados empleado) {
+	public Empleados actualizarEmpleado(@PathVariable(name="id")String id,@RequestBody Empleados empleado) {
 		
 		Empleados empleado_seleccionado= new Empleados();
 		Empleados empleado_actualizado= new Empleados();
 		
-		empleado_seleccionado= articulosServiceImpl.empleadoXID(id);
+		empleado_seleccionado= empleadosServiceImpl.empleadoXID(id);
 		
 		empleado_seleccionado.setNombre(empleado.getNombre());
 		empleado_seleccionado.setApellidos(empleado.getApellidos());
 		empleado_seleccionado.setDepartamento(empleado.getDepartamento());
 		
-		empleado_actualizado = articulosServiceImpl.actualizarEmpleado(empleado_seleccionado);
-		
-		System.out.println("El empleado actualizado es: "+ empleado_actualizado);
+		empleado_actualizado = empleadosServiceImpl.actualizarEmpleado(empleado_seleccionado);
 		
 		return empleado_actualizado;
 	}
 	
 	@DeleteMapping("/empleados/{id}")
-	public void eliminarArticulo(@PathVariable(name="id")String id) {
-		articulosServiceImpl.eliminarEmpleado(id);
+	public void eliminarEmpleado(@PathVariable(name="id")String id) {
+		empleadosServiceImpl.eliminarEmpleado(id);
 	}
 	
 }

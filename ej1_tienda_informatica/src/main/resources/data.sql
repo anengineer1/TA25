@@ -12,7 +12,7 @@ CREATE TABLE articulos (
   codigo int NOT NULL AUTO_INCREMENT,
   nombre nvarchar(100) DEFAULT NULL,
   precio int DEFAULT NULL,
-  fabricante int DEFAULT NULL,
+  fabricante int,
   PRIMARY KEY (codigo),
   CONSTRAINT articulos_fk FOREIGN KEY (fabricante) REFERENCES fabricantes (codigo)
 );
